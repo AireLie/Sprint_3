@@ -3,7 +3,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from locators import TestLocators
 from data import Registration
 
-class TestRegistration_positive:
+class TestRegistrationPositive:
     def test_registration_with_valid_data(self, driver):
         driver.find_element(*TestLocators.BUTTON_PERSONAL_ACCOUNT).click()
         driver.find_element(*TestLocators.LINK_REGISTRATION).click()
@@ -26,7 +26,7 @@ class TestRegistration_positive:
         assert check_text == "Оформить заказ"
 
 
-class TestRegistration_negative:
+class TestRegistrationNegative:
     def test_registration_with_empty_user_name(self, driver):
         driver.find_element(*TestLocators.BUTTON_PERSONAL_ACCOUNT).click()
         driver.find_element(*TestLocators.LINK_REGISTRATION).click()

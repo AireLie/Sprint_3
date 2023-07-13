@@ -1,7 +1,7 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from locators import TestLocators
-from helpers import login
+from data import Credentials
 
 class TestAccount:
     def test_transition_to_personal_account(self, driver):
@@ -9,7 +9,9 @@ class TestAccount:
         driver.find_element(*TestLocators.BUTTON_PERSONAL_ACCOUNT).click()
         WebDriverWait(driver, 7).until(expected_conditions.visibility_of_element_located(TestLocators.LOGIN_HEADER))
 
-        login(driver)
+        driver.find_element(*TestLocators.INPUT_EMAIL).send_keys(Credentials.get_credentials().email)
+        driver.find_element(*TestLocators.INPUT_PASSWORD).send_keys(Credentials.get_credentials().password)
+        driver.find_element(*TestLocators.BUTTON_LOGIN).click()
 
         WebDriverWait(driver, 5).until(expected_conditions.element_to_be_clickable(TestLocators.BUTTON_PLACE_AN_ORDER))
 
@@ -22,7 +24,9 @@ class TestAccount:
         driver.find_element(*TestLocators.BUTTON_PERSONAL_ACCOUNT).click()
         WebDriverWait(driver, 7).until(expected_conditions.visibility_of_element_located(TestLocators.LOGIN_HEADER))
 
-        login(driver)
+        driver.find_element(*TestLocators.INPUT_EMAIL).send_keys(Credentials.get_credentials().email)
+        driver.find_element(*TestLocators.INPUT_PASSWORD).send_keys(Credentials.get_credentials().password)
+        driver.find_element(*TestLocators.BUTTON_LOGIN).click()
 
         WebDriverWait(driver, 5).until(expected_conditions.element_to_be_clickable(TestLocators.BUTTON_PLACE_AN_ORDER))
 
@@ -38,7 +42,9 @@ class TestAccount:
         driver.find_element(*TestLocators.BUTTON_PERSONAL_ACCOUNT).click()
         WebDriverWait(driver, 7).until(expected_conditions.visibility_of_element_located(TestLocators.LOGIN_HEADER))
 
-        login(driver)
+        driver.find_element(*TestLocators.INPUT_EMAIL).send_keys(Credentials.get_credentials().email)
+        driver.find_element(*TestLocators.INPUT_PASSWORD).send_keys(Credentials.get_credentials().password)
+        driver.find_element(*TestLocators.BUTTON_LOGIN).click()
 
         WebDriverWait(driver, 5).until(expected_conditions.element_to_be_clickable(TestLocators.BUTTON_PLACE_AN_ORDER))
 
